@@ -1,13 +1,21 @@
-int analog = A0;
-int numValor = 0;
-char buffer[50];
+int analogEsq = A0;
+int analogDir = A1;
+int randomDelay;
 
 void setup() {
   Serial.begin(9600);
 }
 
 void loop() {
-  sprintf(buffer, "%d", analogRead(analog));
-  Serial.println(buffer);
-  delay(200);
+  randomDelay = random(100, 1000);
+  
+  //Serial.print("Esq: ");
+  Serial.println(analogRead(analogEsq));
+
+  delay(randomDelay);
+  
+  //Serial.print("Dir: ");
+  Serial.println(analogRead(analogDir));
+  
+  delay(randomDelay);
 }
